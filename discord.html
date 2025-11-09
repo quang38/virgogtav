@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord - VIRGO CITY</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .discord-container {
+            max-width: 1200px;
+            margin: 120px auto 50px;
+            padding: 2rem;
+        }
+
+        .discord-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .discord-header h2 {
+            font-size: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .discord-header p {
+            color: #888;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .discord-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .discord-info {
+            animation: fadeInLeft 0.8s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .discord-widget {
+            animation: fadeInRight 0.8s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .discord-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .discord-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);
+            border-color: rgba(0, 102, 255, 0.3);
+        }
+
+        .discord-card h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .discord-card h3 i {
+            font-size: 1.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .discord-card:hover h3 i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .discord-card p {
+            color: #888;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .discord-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(0, 102, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .feature-item i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .feature-item span {
+            color: var(--text-color);
+        }
+
+        .discord-join {
+            text-align: center;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+            opacity: 1;
+        }
+
+        .discord-join-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: #5865F2;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .discord-join-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        .discord-join-button i {
+            font-size: 1.5rem;
+        }
+
+        .discord-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(0, 102, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .stat-item .number {
+            color: var(--accent-color);
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item .label {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .discord-content {
+                grid-template-columns: 1fr;
+            }
+
+            .discord-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-gamepad"></i>
+            <span>VIRGO CITY</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Trang chủ</a>
+            <a href="rules.html">Nội quy</a>
+            <a href="team.html">Đội ngũ</a>
+            <a href="discord.html" class="active">Discord</a>
+        </div>
+    </nav>
+
+    <div class="discord-container">
+        <div class="discord-header">
+            <h2>Máy chủ Discord của chúng tôi</h2>
+            <p>Tham gia cộng đồng ngày càng phát triển và cập nhật những tin tức mới nhất!</p>
+        </div>
+
+        <div class="discord-content">
+            <div class="discord-info">
+                <div class="discord-card">
+                    <h3><i class="fab fa-discord"></i> Trung tâm cộng đồng</h3>
+                    <p>Máy chủ Discord là trái tim của cộng đồng chúng tôi. Tại đây, bạn có thể tìm thấy mọi thông tin quan trọng, trò chuyện cùng những người chơi khác và cập nhật các tin tức mới nhất.</p>
+                    
+                    <div class="discord-features">
+                        <div class="feature-item">
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Thông báo máy chủ</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <span>Cộng đồng năng động</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-headset"></i>
+                            <span>Kênh thoại</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Hệ thống hỗ trợ</span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="discord-card">
+                    <h3><i class="fas fa-chart-line"></i> Thống kê máy chủ</h3>
+                    <div class="discord-stats">
+                        <div class="stat-item">
+                            <div class="number">100+</div>
+                            <div class="label">Thành viên</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">24/7</div>
+                            <div class="label">Hỗ trợ trực tuyến</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">50+</div>
+                            <div class="label">Hoạt động hằng ngày</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="discord-card">
+                    <h3><i class="fas fa-star"></i> Quyền lợi đặc biệt</h3>
+                    <p>Khi tham gia Discord, bạn sẽ nhận được nhiều quyền lợi và tính năng độc quyền:</p>
+                    <div class="discord-features">
+                        <!-- <div class="feature-item">
+                            <i class="fas fa-gift"></i>
+                            <span>Phần thưởng đặc biệt</span>
+                        </div> -->
+                        <div class="feature-item">
+                            <i class="fas fa-crown"></i>
+                            <span>Cấp bậc đặc quyền</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Thông báo sự kiện</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Trò chuyện cùng cộng đồng</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="discord-widget">
+                <iframe src="https://discord.com/widget?id=1344724418806550619&theme=dark" 
+                        width="100%" 
+                        height="600" 
+                        allowtransparency="true" 
+                        frameborder="0"
+                        style="border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="discord-join">
+            <a href="https://discord.gg/eXXXFtsmsG" class="discord-join-button" target="_blank">
+                <i class="fab fa-discord"></i>
+                Tham gia Discord ngay!
+            </a>
+        </div>
+    </div>
+<!-- <div class="discord_link"></div> -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="imprint.html" target="_blank">Thông tin pháp lý</a>
+                <a href="privacy.html" target="_blank">Chính sách bảo mật</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2024 VIRGO CITY. Mọi quyền được bảo lưu.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html> 

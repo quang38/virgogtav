@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imprint - VIRGO CITY</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .imprint-container {
+            max-width: 1200px;
+            margin: 120px auto 50px;
+            padding: 2rem;
+        }
+
+        .imprint-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .imprint-header h2 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .imprint-header p {
+            color: #888;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .imprint-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .imprint-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .imprint-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);
+        }
+
+        .imprint-title {
+            color: #0066ff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .imprint-text {
+            color: #888;
+            line-height: 1.6;
+        }
+
+        .imprint-text ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .imprint-text li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .imprint-text li::before {
+            content: '•';
+            color: #0066ff;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-gamepad"></i>
+            <span>VIRGO CITY</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Trang chủ</a>
+            <a href="rules.html">Nội quy</a>
+            <a href="team.html">Đội ngũ</a>
+            <a href="discord.html">Discord</a>
+        </div>
+    </nav>
+
+    <div class="imprint-container">
+        <div class="imprint-header">
+            <h2>Thông tin pháp lý</h2>
+            <!-- <p>Thông tin theo § 5 TMG</p> -->
+        </div>
+
+        <div class="imprint-grid">
+            <div class="imprint-card">
+                <h3 class="imprint-title"><i class="fas fa-user"></i> Người chịu trách nhiệm nội dung</h3>
+                <div class="imprint-text">
+                    <!-- <p>Nguyễn Văn A</p>
+                    <p>123 Đường Mẫu</p>
+                    <p>Phường Mẫu, Thành phố Mẫu</p>
+                    <p>Việt Nam</p> -->
+                </div>
+            </div>
+
+            <div class="imprint-card">
+                <h3 class="imprint-title"><i class="fas fa-envelope"></i> Liên hệ</h3>
+                <div class="imprint-text">
+                    <!-- <p>Email: contact@virgocity.com</p> -->
+                    <p>Discord: discord.gg/eXXXFtsmsG</p>
+                </div>
+            </div>
+
+            <div class="imprint-card">
+                <h3 class="imprint-title"><i class="fas fa-gavel"></i> Thông báo pháp lý</h3>
+                <div class="imprint-text">
+                    <p>Máy chủ này không có liên kết chính thức với Rockstar Games hoặc Take-Two Interactive.</p>
+                    <p>FiveM là một bản chỉnh sửa của bên thứ ba dành cho GTA V.</p>
+                </div>
+            </div>
+
+            <div class="imprint-card">
+                <h3 class="imprint-title"><i class="fas fa-shield-alt"></i> Tuyên bố miễn trừ trách nhiệm</h3>
+                <div class="imprint-text">
+                    <p>Tất cả nội dung trên trang web này chỉ nhằm mục đích giải trí.</p>
+                    <p>Chúng tôi không tuyên bố quyền sở hữu đối với bất kỳ tài sản hoặc thương hiệu trò chơi nào.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="imprint.html" target="_blank">Thông tin pháp lý</a>
+                <a href="privacy.html" target="_blank">Chính sách bảo mật</a>
+            </div>
+
+            <div class="footer-copyright">
+                &copy; 2024 VIRGO CITY. Mọi quyền được bảo lưu.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html> 

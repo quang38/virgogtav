@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy - FiveM Server</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .privacy-container {
+            max-width: 1200px;
+            margin: 120px auto 50px;
+            padding: 2rem;
+        }
+
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .privacy-header h2 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-header p {
+            color: #888;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .privacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .privacy-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .privacy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);
+        }
+
+        .privacy-title {
+            color: #0066ff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .privacy-text {
+            color: #888;
+            line-height: 1.6;
+        }
+
+        .privacy-text ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .privacy-text li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .privacy-text li::before {
+            content: '•';
+            color: #0066ff;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-gamepad"></i>
+            <span>VIRGO CITY</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Trang chủ</a>
+            <a href="rules.html">Nội quy</a>
+            <a href="team.html">Đội ngũ</a>
+            <a href="discord.html">Discord</a>
+        </div>
+    </nav>
+
+    <div class="privacy-container">
+        <div class="privacy-header">
+            <h2>Chính sách bảo mật</h2>
+            <p>Thông tin về việc thu thập và sử dụng dữ liệu</p>
+        </div>
+
+        <div class="privacy-grid">
+            <div class="privacy-card">
+                <h3 class="privacy-title"><i class="fas fa-database"></i> Dữ liệu được thu thập</h3>
+                <div class="privacy-text">
+                    <p>Chúng tôi có thể thu thập các thông tin sau:</p>
+                    <ul>
+                        <li>Tên người dùng và ID Discord</li>
+                        <li>Thống kê và thành tích trong trò chơi</li>
+                        <li>Nhật ký hoạt động trong máy chủ</li>
+                        <li>Thông tin kỹ thuật phục vụ hỗ trợ</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="privacy-card">
+                <h3 class="privacy-title"><i class="fas fa-cookie"></i> Cookie</h3>
+                <div class="privacy-text">
+                    <p>Trang web này có thể sử dụng cookie để:</p>
+                    <ul>
+                        <li>Ghi nhớ tùy chọn của bạn</li>
+                        <li>Cải thiện hiệu suất trang web</li>
+                        <li>Phân tích lưu lượng truy cập</li>
+                        <li>Cung cấp nội dung cá nhân hóa</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="privacy-card">
+                <h3 class="privacy-title"><i class="fas fa-shield-alt"></i> Bảo mật dữ liệu</h3>
+                <div class="privacy-text">
+                    <p>Chúng tôi áp dụng các biện pháp bảo mật bao gồm:</p>
+                    <ul>
+                        <li>Mã hóa dữ liệu trong quá trình truyền</li>
+                        <li>Cập nhật bảo mật thường xuyên</li>
+                        <li>Kiểm soát truy cập nghiêm ngặt</li>
+                        <li>Lưu trữ dữ liệu trong môi trường an toàn</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="privacy-card">
+                <h3 class="privacy-title"><i class="fas fa-user-shield"></i> Quyền của bạn</h3>
+                <div class="privacy-text">
+                    <p>Bạn có quyền:</p>
+                    <ul>
+                        <li>Truy cập thông tin cá nhân của mình</li>
+                        <li>Yêu cầu chỉnh sửa dữ liệu sai</li>
+                        <li>Yêu cầu xóa dữ liệu cá nhân</li>
+                        <li>Phản đối việc xử lý dữ liệu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+           <div class="footer-links">
+                <a href="imprint.html" target="_blank">Thông tin pháp lý</a>
+                <a href="privacy.html" target="_blank">Chính sách bảo mật</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2024 VIRGO CITY. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html> 

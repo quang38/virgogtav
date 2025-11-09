@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules - FiveM Server</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .rules-container {
+            max-width: 1200px;
+            margin: 120px auto 50px;
+            padding: 2rem;
+        }
+
+        .rules-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .rules-header h2 {
+            font-size: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .rules-header p {
+            color: #888;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .rule-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .rule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 102, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .rule-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .rule-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);
+            border-color: rgba(0, 102, 255, 0.3);
+        }
+
+        .rule-card .rule-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgba(0, 102, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .rule-card:hover .rule-number {
+            transform: scale(1.2);
+            color: rgba(0, 102, 255, 0.2);
+        }
+
+        .rule-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .rule-card h3 i {
+            font-size: 1.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .rule-card:hover h3 i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .rule-card p {
+            line-height: 1.6;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .rule-card .rule-details {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .rule-card .rule-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .rule-card .rule-details li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #888;
+        }
+
+        .rule-card .rule-details li::before {
+            content: '•';
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .rule-card .rule-details li:hover {
+            color: var(--text-color);
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+
+        .rule-card:nth-child(1) { animation-delay: 0.1s; }
+        .rule-card:nth-child(2) { animation-delay: 0.2s; }
+        .rule-card:nth-child(3) { animation-delay: 0.3s; }
+        .rule-card:nth-child(4) { animation-delay: 0.4s; }
+        .rule-card:nth-child(5) { animation-delay: 0.5s; }
+        .rule-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .rules-footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            animation: fadeInUp 0.8s ease 0.7s forwards;
+            opacity: 0;
+        }
+
+        .rules-footer p {
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .rules-footer .warning {
+            color: #ff4444;
+            font-weight: bold;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-gamepad"></i>
+            <span>VIRGO CITY</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Trang chủ</a>
+            <a href="rules.html" class="active">Nội quy</a>
+            <a href="team.html">Đội ngũ</a>
+            <a href="discord.html">Discord</a>
+        </div>
+    </nav>
+
+    <div class="rules-container">
+        <div class="rules-header">
+            <h2>Nội quy máy chủ</h2>
+            <p>Để đảm bảo trải nghiệm công bằng và thú vị cho tất cả người chơi, vui lòng tuân thủ các quy định sau.</p>
+        </div>
+        
+        <div class="rules-grid">
+            <div class="rule-card">
+                <div class="rule-number">01</div>
+                <h3><i class="fas fa-handshake"></i> Hành vi tôn trọng</h3>
+                <p>Đối xử với tất cả người chơi một cách tôn trọng và lịch sự. Hành vi tôn trọng là nền tảng của cộng đồng chúng tôi.</p>
+                <div class="rule-details">
+                    <ul>
+                        <li>Không xúc phạm hay phân biệt đối xử</li>
+                        <li>Không hành vi độc hại hoặc khiêu khích</li>
+                        <li>Không quấy rối người chơi khác</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-number">02</div>
+                <h3><i class="fas fa-theater-masks"></i> Quy tắc Roleplay</h3>
+                <p>Roleplay thực tế là cốt lõi của máy chủ. Tuân thủ các quy tắc roleplay để có trải nghiệm chân thực.</p>
+                <div class="rule-details">
+                    <ul>
+                        <li>Bắt buộc hành vi nhân vật thực tế</li>
+                        <li>Không powergaming hay metagaming</li>
+                        <li>Phát triển nhân vật hợp lý</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-number">03</div>
+                <h3><i class="fas fa-comments"></i> Giao tiếp</h3>
+                <p>Giao tiếp đúng cách là yếu tố quan trọng cho trải nghiệm roleplay tốt.</p>
+                <div class="rule-details">
+                    <ul>
+                        <li>Sử dụng chat nội bộ cho giao tiếp trong vai (IC)</li>
+                        <li>Chat ngoài vai (OOC) chỉ dành cho giao tiếp ngoài vai</li>
+                        <li>Không spam hoặc quảng cáo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-number">04</div>
+                <h3><i class="fas fa-car"></i> Quy tắc phương tiện</h3>
+                <p>Lái xe và sử dụng phương tiện một cách thực tế là quan trọng trong roleplay.</p>
+                <div class="rule-details">
+                    <ul>
+                        <li>Tuân thủ luật giao thông</li>
+                        <li>Không lái xe phi thực tế</li>
+                        <li>Đỗ xe đúng nơi quy định</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-number">05</div>
+                <h3><i class="fas fa-gun"></i> Vũ khí và chiến đấu</h3>
+                <p>Hành vi chiến đấu và sử dụng vũ khí phải hợp lý và có cơ sở.</p>
+                <div class="rule-details">
+                    <ul>
+                        <li>Vũ khí chỉ được phép với giấy phép hợp lệ</li>
+                        <li>Chiến đấu thực tế và hợp lý</li>
+                        <li>Không RDM (Random Deathmatch)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-number">06</div>
+                <h3><i class="fas fa-shield-alt"></i> Quy tắc chung</h3>
+                <p>Những quy định bổ sung để đảm bảo trải nghiệm công bằng cho mọi người.</p>
+                <div class="rule-details">
+                    <ul>
+                        <li>Không sử dụng mod hoặc cheat</li>
+                        <li>Không khai thác lỗi game (bug exploit)</li>
+                        <li>Tôn trọng quản trị viên máy chủ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="rules-footer">
+            <p>Đội ngũ quản trị có quyền xử lý các vi phạm theo mức độ nghiêm trọng.</p>
+            <p class="warning">Vi phạm nhiều lần có thể dẫn đến cấm vĩnh viễn!</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="imprint.html" target="_blank">Thông tin pháp lý</a>
+                <a href="privacy.html" target="_blank">Chính sách bảo mật</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2024 VIRGO CITY. Mọi quyền được bảo lưu.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html> 
